@@ -1,1 +1,9 @@
+#include <iostream>
 
+int main() {
+    double celsius = 25.0;
+    double fahrenheit = (celsius * 9.0 / 5.0) + 32.0;
+
+    std::cout << "Температура в градусах Фаренгейта: " << fahrenheit << std::endl;
+    return 0;
+}
