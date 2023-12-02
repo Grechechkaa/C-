@@ -1,1 +1,9 @@
+#include <iostream>
 
+int main() {
+    double meters = 1500.0;
+    double kilometers = meters / 1000.0;
+
+    std::cout << "Расстояние в километрах: " << kilometers << std::endl;
+    return 0;
+}
