@@ -1,1 +1,12 @@
+#include <iostream>
+#include <string>
 
+int main() {
+    std::string original = "Hello, World!";
+    std::string reversed(original.rbegin(), original.rend());
+
+    std::cout << "Исходная строка: " << original << std::endl;
+    std::cout << "Отраженная строка: " << reversed << std::endl;
+
+    return 0;
+}
