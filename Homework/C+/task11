@@ -1,1 +1,24 @@
+#include <iostream>
+#include <string>
 
+int countVowels(const std::string& str) {
+    int count = 0;
+    std::string vowels = "aeiouAEIOU";
+
+    for (char ch : str) {
+        if (vowels.find(ch) != std::string::npos) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+int main() {
+    std::string text = "Hello, World!";
+    int vowelsCount = countVowels(text);
+
+    std::cout << "Количество гласных в строке: " << vowelsCount << std::endl;
+
+    return 0;
+}
