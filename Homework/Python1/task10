@@ -1,1 +1,5 @@
+original = "Hello, World!"
+reversed_str = original[::-1]
 
+print(f"Исходная строка: {original}")
+print(f"Отраженная строка: {reversed_str}")
