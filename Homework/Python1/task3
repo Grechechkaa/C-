@@ -1,1 +1,5 @@
+length = 5.0
+width = 3.0
+area = length * width
 
+print(f"Площадь прямоугольника: {area}")
