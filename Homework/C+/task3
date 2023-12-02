@@ -1,1 +1,10 @@
+#include <iostream>
 
+int main() {
+    double length = 5.0;
+    double width = 3.0;
+    double area = length * width;
+
+    std::cout << "Площадь прямоугольника: " << area << std::endl;
+    return 0;
+}
