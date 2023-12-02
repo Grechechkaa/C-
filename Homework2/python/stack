@@ -1,0 +1,41 @@
+class Stack:
+    def __init__(self):
+        self.items = []
+
+    def push(self, item):
+        self.items.append(item)
+
+    def pop(self):
+        if not self.is_empty():
+            return self.items.pop()
+        else:
+            return None
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+    def peek(self):
+        if not self.is_empty():
+            return self.items[-1]
+        else:
+            return None
+
+    def size(self):
+        return len(self.items)
+
+# Создание стека
+stack = Stack()
+
+# Добавление элементов
+stack.push(1)
+print("Содержимое стека после добавления элемента 1:", stack.items)
+stack.push(2)
+print("Содержимое стека после добавления элемента 2:", stack.items)
+stack.push(3)
+print("Содержимое стека после добавления элемента 3:", stack.items)
+
+# Извлечение элементов
+print("Извлечение элемента из стека:", stack.pop(), "Новое содержимое стека:", stack.items)
+print("Извлечение элемента из стека:", stack.pop(), "Новое содержимое стека:", stack.items)
+print("Извлечение элемента из стека:", stack.pop(), "Новое содержимое стека:", stack.items)
+print("Извлечение элемента из пустого стека:", stack.pop(), "Новое содержимое стека:", stack.items)
