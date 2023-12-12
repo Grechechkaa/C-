@@ -1,0 +1,51 @@
+#include <iostream>
+#include <stdexcept>
+
+class Product {
+protected:
+    double price;
+    double weight;
+
+public:
+    Product(double price, double weight) : price(price), weight(weight) {
+        if (price <= 0 || weight <= 0) {
+            throw std::invalid_argument("Цена и вес должны быть положительными ненулевыми значениями");
+        }
+    }
+
+    double getTotalPrice() {
+        return price * weight;
+    }
+};
+
+class Apple : public Product {
+private:
+    std::string variety;
+
+public:
+    Apple(double price, double weight, std::string variety) : Product(price, weight), variety(variety) {}
+};
+
+class Orange : public Product {
+private:
+    std::string origin;
+
+public:
+    Orange(double price, double weight, std::string origin) : Product(price, weight), origin(origin) {}
+};
+
+int main() {
+    try {
+        Apple a(-1, 100, "Fuji");
+    } catch (std::invalid_argument& e) {
+        std::cerr << "Ошибка при создании яблока: " << e.what() << std::endl;
+    }
+
+    try {
+        Orange o(2, -50, "Spain");
+    } catch (std::invalid_argument& e) {
+        std::cerr << "Ошибка при создании апельсина: " << e.what() << std::endl;
+    }
+
+    return 0;
+}
