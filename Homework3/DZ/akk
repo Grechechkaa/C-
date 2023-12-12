@@ -1,0 +1,170 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+// Создание класса "Собака"
+class Dog {
+public:
+    std::string name;
+    int age;
+};
+
+int main() {
+    // Создание объектов класса "Собака"
+    Dog dog1, dog2;
+    dog1.name = "Барбос";
+    dog1.age = 3;
+    
+    dog2.name = "Рекс";
+    dog2.age = 5;
+
+    // Вывод информации о каждой собаке
+    std::cout << "Собака 1: " << dog1.name << ", возраст " << dog1.age << " лет" << std::endl;
+    std::cout << "Собака 2: " << dog2.name << ", возраст " << dog2.age << " лет" << std::endl;
+
+    return 0;
+}
+// Инкапсуляция
+class BankAccount {
+private:
+    double balance;
+    int accountNumber;
+public:
+    void deposit(double amount) {
+        balance += amount;
+    }
+
+    void withdraw(double amount) {
+        balance -= amount;
+    }
+};
+// Наследование
+class Shape {
+public:
+    virtual float area() = 0;
+};
+
+class Rectangle : public Shape {
+public:
+    float area() override {
+        return width * height;
+    }
+private:
+    float width, height;
+};
+
+class Circle : public Shape {
+public:
+    float area() override {
+        return 3.14 * radius * radius;
+    }
+private:
+    float radius;
+};
+// Полиморфизм
+class Fruit {
+public:
+    virtual void getVitamins() {
+        std::cout << "Получить витамины из фрукта" << std::endl;
+    }
+};
+
+class Apple : public Fruit {
+public:
+    void getVitamins() override {
+        std::cout << "Получить витамины из яблока" << std::endl;
+    }
+};
+
+class Orange : public Fruit {
+public:
+    void getVitamins() override {
+        std::cout << "Получить витамины из апельсина" << std::endl;
+    }
+};
+
+int main() {
+    Apple apple;
+    Orange orange;
+
+    std::vector<Fruit*> fruits = {&apple, &orange};
+
+    for (Fruit* f : fruits) {
+        f->getVitamins();
+    }
+
+    return 0;
+}
+// Иерархия классов
+class Transport {
+protected:
+    int speed;
+    std::string type;
+};
+
+class Car : public Transport {
+private:
+    std::string model;
+};
+
+class Bicycle : public Transport {
+private:
+    std::string brand;
+};
+// Полиморфное поведение
+class Figure {
+public:
+    virtual float area() = 0;
+};
+
+class Rectangle : public Figure {
+public:
+    float area() override {
+        return width * height;
+    }
+private:
+    float width, height;
+};
+
+class Circle : public Figure {
+public:
+    float area() override {
+        return 3.14 * radius * radius;
+    }
+private:
+    float radius;
+};
+
+int main() {
+    Rectangle rectangle;
+    Circle circle;
+
+    std::vector<Figure*> figures = {&rectangle, &circle};
+
+    for (Figure* f : figures) {
+        std::cout << "Площадь: " << f->area() << std::endl;
+    }
+
+    return 0;
+}
+// Использование наследования и композиции
+class House {
+private:
+    int numRooms;
+    std::string address;
+};
+
+class Person {
+private:
+    std::string name;
+    int age;
+};
+
+class Resident : public Person {
+private:
+    House* home;
+public:
+    void setHome(House* h) {
+        home = h;
+    }
+};
