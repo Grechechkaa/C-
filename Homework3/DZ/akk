@@ -24,20 +24,35 @@ int main() {
 
     return 0;
 }
+
 // Инкапсуляция
 class BankAccount {
 private:
-    double balance;
-    int accountNumber;
+    float balance;
+    std::string accountNumber;
+
 public:
-    void deposit(double amount) {
+    void deposit(float amount) {
         balance += amount;
     }
 
-    void withdraw(double amount) {
-        balance -= amount;
+    void withdraw(float amount) {
+        if (balance >= amount) {
+            balance -= amount;
+        } else {
+            std::cout << "Insufficient funds" << std::endl;
+        }
+    }
+
+    float getBalance() {
+        return balance;
+    }
+
+    std::string getAccountNumber() {
+        return accountNumber;
     }
 };
+
 // Наследование
 class Shape {
 public:
@@ -61,6 +76,7 @@ public:
 private:
     float radius;
 };
+
 // Полиморфизм
 class Fruit {
 public:
@@ -111,6 +127,7 @@ class Bicycle : public Transport {
 private:
     std::string brand;
 };
+
 // Полиморфное поведение
 class Figure {
 public:
